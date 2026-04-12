@@ -3,7 +3,7 @@ import { getEstablishment }    from "../services/firestore.js";
 import { ServiceEditor }       from "../components/editors/ServiceEditor.jsx";
 import { ProductEditor }       from "../components/editors/ProductEditor.jsx";
 import { Overline, EmptyState, Spinner } from "../components/ui/index.jsx";
-import { fmtDate }             from "../utils/index.js";
+import { fmtDate }             from "../utils/helpers.js";
 
 const STATUS_INFO = {
   pending:  { label:"Em análise",  color:"#854F0B", bg:"#FAEEDA", icon:"⏳" },

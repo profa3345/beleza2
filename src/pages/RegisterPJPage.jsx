@@ -3,7 +3,7 @@ import { useRegisterPJ }   from "../hooks/useRegisterPJ.js";
 import { useAutosave }     from "../hooks/useAutosave.js";
 import { useCEP }          from "../hooks/useCEP.js";
 import { FRAUD_RULES, STATES_BR } from "../constants/index.js";
-import { fmtCNPJ, fmtPhone, fmtCEP, fmtCPF } from "../utils/index.js";
+import { fmtCNPJ, fmtPhone, fmtCEP, fmtCPF } from "../utils/helpers.js";
 import {
   Field, Row2, FormSection, Hint, Spinner, DocUpload, ImageUpload, Overline,
 } from "../components/ui/index.jsx";

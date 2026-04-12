@@ -1,7 +1,7 @@
 import React from "react";
 import { EmptyState, Overline } from "../components/ui/index.jsx";
 import { SERVICE_CATEGORIES }  from "../constants/index.js";
-import { truncate }            from "../utils/index.js";
+import { truncate }            from "../utils/helpers.js";
 
 function EstablishmentCard({ r }) {
   const cat = SERVICE_CATEGORIES.find(c => c.id === r.category)?.label ?? r.category ?? "";
