@@ -1,1 +1,200 @@
+/* ── Tokens ──────────────────────────────────────────────────────────────── */
+:root {
+  --gold:       #C9A96E;
+  --gold-light: #E0C080;
+  --blue:       #6E9EC9;
+  --green:      #5BAA5B;
+  --red:        #E5534B;
 
+  --ink:        #2C2A24;
+  --ink-light:  #4A4740;
+  --ink-muted:  #7A7670;
+
+  --white:      #FFFFFF;
+  --cream:      #FAF8F4;
+  --cream-mid:  #F2EFE9;
+  --border:     #E8E4DC;
+  --border-mid: #D4D0C8;
+
+  --font-serif: "Playfair Display", "Georgia", serif;
+  --font-sans:  "Inter", "Helvetica Neue", sans-serif;
+}
+
+/* ── Reset ───────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--cream); color: var(--ink); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+
+/* ── Animações ───────────────────────────────────────────────────────────── */
+@keyframes fadeUp  { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+@keyframes slideIn { from { opacity:0; transform:translateX(-8px); } to { opacity:1; transform:translateX(0); } }
+@keyframes popIn   { from { opacity:0; transform:scale(0.85); }     to { opacity:1; transform:scale(1); }     }
+@keyframes spin    { to   { transform:rotate(360deg); } }
+
+.fade-up  { animation: fadeUp  0.35s ease both; }
+.slide-in { animation: slideIn 0.3s  ease both; }
+
+/* ── Inputs ──────────────────────────────────────────────────────────────── */
+.inp {
+  width: 100%;
+  padding: 10px 13px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.inp:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,169,110,0.15); }
+.inp.err   { border-color: var(--red);  box-shadow: 0 0 0 3px rgba(229,83,75,0.12); }
+.inp::placeholder { color: var(--ink-muted); }
+select.inp { cursor: pointer; }
+textarea.inp { resize: vertical; }
+
+/* ── Botões ──────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  transition: opacity 0.15s, transform 0.1s;
+}
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn:active:not(:disabled) { transform: scale(0.98); }
+
+.btn--primary {
+  background: var(--ink);
+  color: #fff;
+  padding: 10px 20px;
+}
+.btn--primary:hover:not(:disabled) { opacity: 0.85; }
+
+.btn--gold {
+  background: var(--gold);
+  color: #fff;
+  padding: 10px 20px;
+}
+.btn--gold:hover:not(:disabled) { background: var(--gold-light); }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--border);
+  padding: 10px 20px;
+}
+.btn--ghost:hover:not(:disabled) { background: var(--cream-mid); }
+
+.btn--green {
+  background: var(--green);
+  color: #fff;
+  padding: 10px 20px;
+}
+
+/* ── Cards ───────────────────────────────────────────────────────────────── */
+.form-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+/* ── Step pills ──────────────────────────────────────────────────────────── */
+.step-pill {
+  padding: 5px 4px;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  transition: all 0.2s;
+}
+
+/* ── Score bar ───────────────────────────────────────────────────────────── */
+.score-bar {
+  height: 6px;
+  background: var(--cream-mid);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.score-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.5s ease;
+}
+
+/* ── Checkbox ────────────────────────────────────────────────────────────── */
+.check-box {
+  width: 20px; height: 20px;
+  border-radius: 5px;
+  border: 2px solid var(--border-mid);
+  background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s;
+}
+.check-box.on {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+/* ── Password ────────────────────────────────────────────────────────────── */
+.pass-wrap { position: relative; }
+.pass-eye {
+  position: absolute; right: 12px; top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer; font-size: 0.9rem; user-select: none;
+}
+
+/* ── Plan card ───────────────────────────────────────────────────────────── */
+.plan-card {
+  position: relative;
+  display: flex; align-items: center; gap: 16px;
+  background: var(--white);
+  border-radius: 14px;
+  padding: 18px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.plan-card:hover { background: var(--cream); }
+.plan-card--ambos { background: linear-gradient(135deg, #FAF8F4 0%, #F8F2FF 100%); }
+.plan-card__badge {
+  position: absolute; top: -8px; right: 16px;
+  background: var(--gold); color: #fff;
+  font-size: 0.6rem; font-weight: 600; letter-spacing: 1px;
+  padding: 2px 10px; border-radius: 99px;
+  font-family: var(--font-sans); text-transform: uppercase;
+}
+.plan-card__icon {
+  width: 50px; height: 50px; border-radius: 12px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+}
+.plan-card__radio {
+  width: 20px; height: 20px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s; flex-shrink: 0;
+}
+.plan-card__radio-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: #fff;
+}
+
+/* ── Draft banner ────────────────────────────────────────────────────────── */
+.draft-banner {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 10px 20px;
+  background: #E6F1FB; border-bottom: 1px solid #B5D4F4;
+  flex-wrap: wrap;
+}
+.draft-banner__text {
+  font-family: var(--font-sans); font-size: 0.78rem; color: #185FA5;
+}
+
+/* ── Hover utility ───────────────────────────────────────────────────────── */
+.hov { transition: all 0.2s; }
+.hov:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
